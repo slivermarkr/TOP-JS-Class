@@ -20,6 +20,8 @@
     this.marker = '^';
   }
 
+  // Enemy.prototype = Person.prototype;
+  Object.setPrototypeOf(Enemy.prototype, Player.prototype)
 
   Enemy.prototype.sayName = function() {
     console.log('HAHAHAHAHA');
@@ -28,6 +30,10 @@
 
   const carl = new Player('carl', 'X');
   carl.sayName();
+
+  const kylee = new Enemy('kyle', 'O');
+  kylee.sayName();
+  console.log(kylee.name)
 //   Player.prototype.getMarker = function() {
 //     console.log(`My marker is '${this.marker}'`);
 //   }
