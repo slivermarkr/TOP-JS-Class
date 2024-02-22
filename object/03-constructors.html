@@ -1,14 +1,50 @@
 <script>
+
+  function Person(name) {
+    this.name = name;
+  }
+  
+  Person.prototype.sayName = function() {
+    console.log(`Hello, I'm ${this.name}!`);
+  }  
+
   function Player(name,marker) {
    this.name = name;
    this.marker = marker;
-
-   this.greetings = function() {
-    console.log(`Hi my name is ${this.name} and my marker is ${this.marker}`)
-   }
   }
 
-  const player1 = new Player("Stan" , "O");
-  const player2 = new Player("Kyle", "X")
+  Player.prototype = Person.prototype;
+
+  function Enemy(name) {    
+    this.name = name;
+    this.marker = '^';
+  }
+
+
+  Enemy.prototype.sayName = function() {
+    console.log('HAHAHAHAHA');
+  }
+
+
+  const carl = new Player('carl', 'X');
+  carl.sayName();
+//   Player.prototype.getMarker = function() {
+//     console.log(`My marker is '${this.marker}'`);
+//   }
+
+//   console.log(Object.getPrototypeOf(Player.prototype));
+
+//   Object.setPrototypeOf(Player.prototype, Person.prototype);
+//  console.log( Object.getPrototypeOf(Player.prototype));
+
+//   const player1 = new Player("Stan" , "O");
+//   const player2 = new Player("Kyle", "X")
   
+//   player1.sayName();
+//   player2.sayName();
+
+//   player1.getMarker();
+//   player2.getMarker();
+
+
 </script>
