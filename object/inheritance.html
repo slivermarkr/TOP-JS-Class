@@ -1,43 +1,55 @@
 <script>
-  function Hero(name,level) {
-   this.name = name;
-   this.level = level;
-  }
+  // function Hero(name,level) {
+  //  this.name = name;
+  //  this.level = level;
+  // }
 
-  Object.setPrototypeOf(Warrior.prototype, Hero.prototype);
-  Object.setPrototypeOf(Healer.prototype, Hero.prototype);
+  // Object.setPrototypeOf(Warrior.prototype, Hero.prototype);
+  // Object.setPrototypeOf(Healer.prototype, Hero.prototype);
 
-  Hero.prototype.greet = function() {
-   return `${this.name} says hello.`
-  }
-  // const hero1 = new Hero('Bjorn', 1);
+  // Hero.prototype.greet = function() {
+  //  return `${this.name} says hello.`
+  // }
+  // // const hero1 = new Hero('Bjorn', 1);
   
-  // console.log(hero1.greet());
+  // // console.log(hero1.greet());
 
-  function Warrior(name,level,weapon){
-   Hero.call(this,name,level);
+  // function Warrior(name,level,weapon){
+  //  Hero.call(this,name,level);
 
-   this.weapon = weapon;
+  //  this.weapon = weapon;
+  // }
+
+  // function Healer(name,level,spell){
+  //  Hero.call(this,name,level);
+
+  //  this.spell = spell;
+  // }
+
+  // Warrior.prototype.attack = function() {
+  //  return `${this.name} attacks with the ${this.weapon}`
+  // }
+
+  // Healer.prototype.heal = function() {
+  //  return `${this.name} casts ${this.spell}.`
+  // }
+
+  // const hero1 = new Warrior("Bjorn" , 1 , "Battle Axe");
+  // const hero2 = new Healer('Soka' , 1 , "Cure");
+
+
+  // console.log(hero1);
+  // console.log(hero2);
+
+
+  function Player(name, age){
+   this.name = name;
+   this.age = age;
   }
-
-  function Healer(name,level,spell){
-   Hero.call(this,name,level);
-
-   this.spell = spell;
+  Player.prototype.greet = function() {
+   return `Hi my name is ${this.name}, I'm ${this.age} old.`
   }
-
-  Warrior.prototype.attack = function() {
-   return `${this.name} attacks with the ${this.weapon}`
-  }
-
-  Healer.prototype.heal = function() {
-   return `${this.name} casts ${this.spell}.`
-  }
-
-  const hero1 = new Warrior("Bjorn" , 1 , "Battle Axe");
-  const hero2 = new Healer('Soka' , 1 , "Cure");
-
-
-  console.log(hero1);
-  console.log(hero2);
+  const player1 = new Player("gorp", 69);
+  console.log(player1);
+  console.log(player1.greet());
 </script>
