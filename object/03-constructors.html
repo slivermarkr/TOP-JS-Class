@@ -1,0 +1,14 @@
+<script>
+  function Player(name,marker) {
+   this.name = name;
+   this.marker = marker;
+
+   this.greetings = function() {
+    console.log(`Hi my name is ${this.name} and my marker is ${this.marker}`)
+   }
+  }
+
+  const player1 = new Player("Stan" , "O");
+  const player2 = new Player("Kyle", "X")
+  
+</script>
