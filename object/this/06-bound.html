@@ -1,0 +1,28 @@
+<script>
+ // const numbers = {
+ //  array: [3, 5, 10],
+
+ //  getNumbers() {
+ //   return this.array;
+ //  }
+ // };
+
+ // const boundGetNumbers = numbers.getNumbers.bind(numbers);
+ // console.log(boundGetNumbers())
+
+ // const simpleGetNumbers = numbers.getNumbers;
+ // console.log(simpleGetNumbers());
+ function getThis() {
+  'user strict';
+  return this;
+ }
+
+ const one = getThis.bind(1);
+
+ console.log(one());
+
+ console.log(one.call(2))
+ console.log(one.apply(2))
+ console.log(one.bind(2)())
+ console.log(new one());
+</script>

@@ -1,0 +1,16 @@
+<script>
+ const numbers = {
+  numberA: 5,
+  numberB: 10,
+   sum: function() {
+    console.log(this === numbers);
+
+    const calculate = () => {
+     console.log(this === numbers);
+     return this.numberA + this.numberB;
+    }
+    return calculate();
+   }
+ }
+ numbers.sum();
+</script>

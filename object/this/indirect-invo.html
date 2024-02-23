@@ -1,0 +1,31 @@
+<script>
+ // const rabbit = { name: 'White Rabbit'};
+
+
+ // function concatName(string) {
+ //  console.log(this === rabbit);
+ //  return string + this.name;
+ // }
+ // function Runner(name) {
+ //  console.log(this instanceof Rabbit);
+ //  this.name = name;
+ // }
+ // function Rabbit(name, countLegs) {
+ //  console.log(this instanceof Rabbit);
+
+ //  Runner.call(this, name);
+ //  this.countLegs = countLegs;
+ // }
+
+ // const myRabbit = new Rabbit('White Rabbit' , 4);
+ // myRabbit;
+ function multiply(number) {
+  'user strict';
+  return this * number;
+ }
+
+ const double = multiply.bind(2);
+
+ double(3);
+ double(10);
+</script>

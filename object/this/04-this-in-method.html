@@ -1,0 +1,55 @@
+<script>
+ // const calc = {
+ //  num: 0, 
+ //  increment() {
+ //   console.log(this === calc);
+ //   this.num += 1;
+ //   return this.num;
+ //  }
+ // };
+
+ // calc.increment();
+ // calc.increment();
+
+ // const myDog = Object.create({
+ //  sayName() {
+ //   console.log(this === myDog);
+ //   return this.name;
+ //  }
+ // });
+
+ // myDog.name = 'Milo' ;
+ // myDog.sayName();
+
+
+ // class Planet {
+ //  constructor(name) {
+ //   this.name = name;
+ //  }
+   
+ //  getName() {
+ //   console.log(this===earth);
+ //   return this.name;
+ //  }
+ // }
+
+ // const earth = new Planet('Earth');
+ // earth.getName();
+
+
+
+ function Pet(type, legs){
+  this.type = type;
+   this.legs = legs;
+
+   this.logInfo = () => {
+    console.log(this === myCat)
+    console.log(`The ${this.type} has ${this.legs} legs`)
+   }
+ }
+
+
+ const myCat = new Pet('Cat' , 4);
+
+ setTimeout(myCat.logInfo(), 1000)
+</script>
