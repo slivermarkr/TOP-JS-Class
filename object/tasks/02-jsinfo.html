@@ -1,0 +1,27 @@
+<script>
+ // let animal = {
+ //  eat() {
+ //   this.full = true;
+ //  }
+ // };
+
+ // let rabbit = {}
+ // Object.setPrototypeOf(rabbit, animal)
+ // rabbit.eat();
+ let hamster = {
+  stomach: [],
+
+  eat(food) {
+   this.stomach = [food];
+  }
+ };
+
+ let speedy  = {}
+ Object.setPrototypeOf(speedy,hamster)
+ let lazy = {}
+ Object.setPrototypeOf(lazy,hamster)
+
+ speedy.eat("apple");
+ console.log(speedy.stomach);
+ console.log(lazy.stomach);
+</script>
