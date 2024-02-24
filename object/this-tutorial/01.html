@@ -1,0 +1,30 @@
+<script>
+ 'use strictk'
+ // const student = {
+ //  name: "Choco",
+
+ //  printName: function() {
+ //   console.log(this.name)
+ //  }
+ // }
+
+
+ // student.printName();
+
+ // const student2 = {
+ //  name: "mingming"
+ // }
+
+ // student.printName.call(student2);
+
+ const obj2 = {
+  a: 20,
+  x: function () {
+   const y = () => {
+    console.log(this)
+   }
+   y()
+  }
+ }
+ obj2.x();
+</script>

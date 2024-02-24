@@ -1,0 +1,26 @@
+<script>
+ let user = {
+  name: "Jong",
+  surname: "Smith",
+
+  set fullName(value) {
+   [this.name, this.surname] = value.split(" ");
+  },
+
+  get fullName(){
+   return `${this.name} ${this.surname}`;
+  }
+ };
+
+ let admin = {
+  isAdmin: true
+ }
+ Object.setPrototypeOf(admin, user);
+
+ console.log(admin.fullName);
+
+ admin.fullName = "Alice Cooper";
+
+console.log(admin.fullName);
+console.log(user.fullName);
+</script>

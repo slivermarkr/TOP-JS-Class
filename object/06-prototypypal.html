@@ -1,0 +1,22 @@
+<script>
+ let animal = {
+  eats: true,
+  walk() {
+   alert('Animal  Walk')
+  },
+ }
+
+ let rabbit = {
+  jumps:true,
+ }
+ Object.setPrototypeOf(rabbit, animal);
+ rabbit.walk();
+
+ let longEar = {
+  earLength: 10
+ }
+
+ Object.setPrototypeOf(longEar, rabbit);
+ console.log(`jumps:${longEar.jumps}`)
+ longEar.walk();
+</script>
