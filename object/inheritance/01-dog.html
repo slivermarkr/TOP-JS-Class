@@ -1,0 +1,56 @@
+<script>
+ // function Dog(name, breed, color) {
+ //  this.name = name;
+ //  this.breed = breed;
+ //  this.color = color;
+
+ //  this.bark = function() {
+ //   return 'Woooff!'
+ //  }
+ // }
+ 
+ // class Dog {
+ //  constructor(name,breed,color) {
+ //   this.name = name
+ //   this.breed = breed
+ //   this.color = color
+ //  }
+
+ //  bark() {
+ //   return "Woof!"
+ //  }
+ // }
+
+ // const dog1 = new Dog(
+ //  "Daisy",
+ //  "labrador",
+ //  "black"
+ // )
+
+ // const dog2 = new Dog(
+ //  "Jack",
+ //  "Jack Russell",
+ //  "white"
+ // )
+
+ class Dog {
+  constructor(name){
+   this.name = name;
+  }
+  bark() {
+   return "Woof!"
+  }
+ }
+ 
+  class Chihuahua extends Dog {
+   constructor(name) {
+    super(name)
+   }
+ 
+   smallBark() {
+    return "Small woof!"
+   }
+}
+
+ const myPet = new Chihuahua("max");
+</script>
