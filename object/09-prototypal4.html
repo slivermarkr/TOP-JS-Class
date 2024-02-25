@@ -1,0 +1,14 @@
+<script>
+ function Apple(color, weight){
+  this.color = color,
+  this.weight = weight
+ }
+
+ const apple1 = new Apple("red", 15);
+ const apple2 = new Apple("green", 22);
+ const apple3 = new Apple('purple', 30);
+
+ Apple.prototype.eat = function() {
+  return `I eat ${this.color} apple!`
+ }
+</script>
