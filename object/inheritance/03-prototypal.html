@@ -1,26 +1,46 @@
 <script>
- function Animal(name, energy) {
-  // let animal = Object.create(Animal.prototype)
-  this.name = name
-  this.energy = energy
-  // return animal
- };
+ // function Animal(name, energy) {
+ //  // let animal = Object.create(Animal.prototype)
+ //  this.name = name
+ //  this.energy = energy
+ //  // return animal
+ // };
 
- Animal.prototype.eat = function(amount) {
+ // Animal.prototype.eat = function(amount) {
+ //  console.log(`${this.name} is eating`)
+ //  this.energy += amount
+ // };
+
+ // Animal.prototype.sleep = function(length) {
+ //  console.log(`${this.name} is sleeping`)
+ //  this.energy += length
+ // };
+
+ // Animal.prototype.play = function(length) {
+ //  console.log(`${this.name} is playing`)
+ //  this.energy -= length
+ // };
+
+ class Animal {
+  constructor(name, energy) {
+   this.name = name;
+   this.energy = energy;
+  }
+
+ eat = function(amount) {
   console.log(`${this.name} is eating`)
   this.energy += amount
  };
 
- Animal.prototype.sleep = function(length) {
+ sleep = function(length) {
   console.log(`${this.name} is sleeping`)
   this.energy += length
- };
-
- Animal.prototype.play = function(length) {
+ }
+ play = function(length) {
   console.log(`${this.name} is playing`)
   this.energy -= length
- };
-
+ }
+ }
  const leo = new Animal('Leon' , 9);
  const snoop = new Animal('Snoop' , 12);
 
