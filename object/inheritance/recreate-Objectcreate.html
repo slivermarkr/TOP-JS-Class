@@ -1,0 +1,8 @@
+<script>
+ Object.create = function(objToDelegateTo) {
+  function Fn() {};
+   Fn.prototype = objToDelegateTo
+   return new Fn();
+  }
+ 
+</script>

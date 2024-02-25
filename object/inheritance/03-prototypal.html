@@ -43,7 +43,18 @@
  }
  const leo = new Animal('Leon' , 9);
  const snoop = new Animal('Snoop' , 12);
-
+ for(let key in leo) {
+  if(leo.hasOwnProperty(key)){
+  console.log(`Key: ${key}. Value: ${leo[key]}`)}
+}
  leo.eat(10)
  snoop.play(5)
+// function Animal (name, energy) {
+//   if (this instanceof Animal === false) {
+//     return new Animal(name, energy)
+//   }
+//   this.name = name
+//   this.energy = energy
+// }
+// const leo = Animal("Leo" , 10)
 </script>
