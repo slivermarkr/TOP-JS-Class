@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+ <style>
+  
+ </style>
+</head>
+<body>
+<dialog id="favDialog"> 
+<form>
+ <p>
+  <label>
+   Favorite Animal:
+   <select>
+    <option value="default">Choose...</option>
+    <option>Shrimp</option>
+    <option>Panda</option>
+    <option>Monkek</option>
+   </select>
+  </label>
+ </p>
+ <div>
+  <button value="cancel" formmethod="dialog">Cancel</button>
+  <button id="confirmBtn" value="default">Confirm</button>
+ </div>
+</form>
+</dialog>
+<p>
+ <button id="showDialog">Show the dialog</button>
+</p>
+<output></output>
+
+<script>
+const showButton = document.querySelector('#showDialog');
+const dialog = document.querySelector('#favDialog');
+const confirmBtn = dialog.querySelector('#confirmBtn');
+const selectElement = dialog.querySelector('select');
+const output = document.querySelector('output');
+
+
+showButton.addEventListener('click', () => {
+ dialog.showModal();
+})
+
+selectElement.addEventListener('change', (e) => {
+ confirmBtn.value = selectElement.value
+ })
+
+dialog.addEventListener('close' , (e) => {
+output.value =
+ dialog.returnValue === "default" ? "No return value" : `ReturnValue:${dialog.returnValue}`;
+})
+
+confirmBtn.addEventListener('click',(e) => {
+ e.preventDefault();
+
+ dialog.close(selectElement.value)
+})
+
+
+
+</script>
+</body>
+</html>
