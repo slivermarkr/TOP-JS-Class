@@ -1,0 +1,16 @@
+<script>
+ const User = function(name) {
+  this.name = name;
+  this.discordName = "@" + name;
+ }
+ const mark = new User("Mark");
+ console.log(mark.discordName)
+
+ function createUser(name) {
+  const discordName = "@" + name;
+  return {name, discordName};
+ }
+
+ const henry = createUser("henry");
+ console.log(henry);
+</script>
