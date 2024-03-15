@@ -7,16 +7,29 @@
  // go();
  // console.log(age)
  // console.log(hair);
- const dog = 'snickers';
 
- function logDog(dog) {
-  console.log(dog);
+
+ // LEXICAL SCOPE
+ // const dog = 'snickers';
+
+ // function logDog(dog) {
+ //  console.log(dog);
+ // }
+
+ // function go() {
+ //  const dog = 'sunny';
+ //  logDog('Rufus');
+ // }
+
+ // go();
+
+ //FUNCTION INSIDE AFUNCTION
+
+ function sayHi(name) {
+  function yell() {
+   console.log(name.toUpperCase());
+  }
+  yell();
  }
 
- function go() {
-  const dog = 'sunny';
-  logDog('Rufus');
- }
-
- go();
 </script>
