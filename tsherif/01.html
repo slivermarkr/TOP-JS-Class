@@ -1,7 +1,16 @@
 <script>
- function C() {
-  this.instance_member = "whoops!"
- }
- let c = C();
+ // function C() {
+ //  if(!(this instanceof C)){
+ //   return new C();
+ //  }
+ //  this.instance_member = "This is okay.";
+ // }
+ // let c = C();
+let proto = {protoprop: "protoprop"}
+function C() {this.cprop ="cprop"}
+C.prototype = proto;
+function F() {this.fprop = "fprop"}
+F.prototype = proto;
 
+let f = new F();
 </script>
