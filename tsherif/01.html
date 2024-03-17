@@ -6,11 +6,19 @@
  //  this.instance_member = "This is okay.";
  // }
  // let c = C();
-let proto = {protoprop: "protoprop"}
-function C() {this.cprop ="cprop"}
-C.prototype = proto;
-function F() {this.fprop = "fprop"}
-F.prototype = proto;
 
-let f = new F();
+// INSTANCE OF 
+// let proto = {protoprop: "protoprop"}
+// function C() {this.cprop ="cprop"}
+// C.prototype = proto;
+// function F() {this.fprop = "fprop"}
+// F.prototype = proto;
+
+// let f = new F();
+
+function C() {
+}
+C.prototype = {protype_prop: "proto"};
+
+c = new C();
 </script>
