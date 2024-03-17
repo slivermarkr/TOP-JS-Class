@@ -1,0 +1,33 @@
+<script>
+ //this is constructor
+
+//  function MyObject(data) {
+//   this.data = data;
+//  }
+
+//  MyObject.prototype = {
+//   getData: function() {
+//    return this.data;
+//   }
+//  }
+
+
+//  let o = new MyObject("data");
+
+//this is actory function
+
+
+function myObject(data) {
+ let obj = Object.create(myObject.proto);
+ obj.data = data;
+ return obj;
+}
+
+myObject.proto = {
+ getData: function() {
+  return this.data;
+ }
+}
+
+let o = myObject("data");
+</script>
