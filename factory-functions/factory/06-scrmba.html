@@ -1,0 +1,12 @@
+<script>
+ const personFactory = (name, age) => {
+  const sayHello =() => {console.log("Hello!")};
+
+  return {name, age, sayHello}
+ }
+
+ const henry = personFactory("Henry", 22);
+
+ console.log(henry.name)
+ henry.sayHello();
+</script>
