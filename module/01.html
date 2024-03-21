@@ -1,6 +1,13 @@
 <script>
  const Formatter = (function() {
+  let timesRun = 0;
+
   const log = (message) => console.log(`[${Date.now()}] Logger: ${message}`);
+
+  const setTimesRun = () => {
+   log("Setting times run");
+   ++timesRun;
+  }
 
   const makeUpperCase = (text) => {
    log("Making uppercase");
@@ -9,6 +16,7 @@
 
   return {
    makeUpperCase,
+   timesRun,
   }
  })()
 </script>
