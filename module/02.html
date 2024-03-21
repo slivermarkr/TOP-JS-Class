@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+<body>
+ <div id="target"></div>
+ <script>
+  const Formatter = (function() {
+ const log = (message) => console.log(`[${Date.now()}] Logger: ${message}`);
+ 
+ 
+ const makeUppercase = (text) => {
+  log("Making Uppercase");
+  return text.toUpperCase();
+ }
+ 
+ const writeToDOM = (selector, message) => {
+  document.querySelector(selector).innerHTML = message;
+ }
+ 
+ return {
+  makeUppercase,
+  writeToDOM,
+ }
+  })();
+ 
+  Formatter.writeToDOM("#target", "Hi there");
+ </script>
+</body>
+</html>

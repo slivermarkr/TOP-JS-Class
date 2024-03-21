@@ -1,16 +1,17 @@
 <script>
  const Formatter = (function() {
-  let timesRun = 0;
+  const timesRun = [];
 
   const log = (message) => console.log(`[${Date.now()}] Logger: ${message}`);
 
-  const setTimesRun = () => {
-   log("Setting times run");
-   ++timesRun;
-  }
+  // const setTimesRun = () => {
+  //  log("Setting times run");
+  //  ++timesRun;
+  // }
 
   const makeUpperCase = (text) => {
    log("Making uppercase");
+   timesRun.push(null);
    return text.toUpperCase();
   }
 
@@ -19,4 +20,8 @@
    timesRun,
   }
  })()
+ console.log(Formatter.makeUpperCase("tomek"));
+console.log(Formatter.makeUpperCase("tomek"));
+console.log(Formatter.makeUpperCase("tomek"));
+console.log(Formatter.timesRun.length);
 </script>
