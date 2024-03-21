@@ -1,0 +1,27 @@
+<script>
+
+//  let a = 17
+  
+//  const func = x => {
+//   let a = x;
+//   return a
+//  }
+// func(99);
+// console.log(func(99))
+
+const FactoryFunction = string => {
+ const capitalizeSring =  () => string.toUpperCase();
+ const printString = () => console.log(`----${capitalizeSring()}----`);
+ return {printString};
+}
+
+const taco = FactoryFunction('taco');
+
+// printString()
+
+// capitalizeSring()
+
+// taco.capitalizeSring()
+
+taco.printString();
+</script>

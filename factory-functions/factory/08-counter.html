@@ -1,0 +1,17 @@
+<script>
+ const counterCreator = () => {
+  let count = 0;
+
+  return () => {
+   count++
+   console.log(count);
+  }
+ }
+
+ const counter = counterCreator()
+
+
+ counter()
+ counter()
+ counter()
+</script>
