@@ -1,0 +1,21 @@
+<script>
+ const createUser = ({firstName,lastName,email}) => ({
+  firstName,
+  lastName,
+  email,
+  fullName() {
+   return `${this.firstName} ${this.lastName}`
+  },
+ })
+
+ const user1 = createUser({
+  firstName: "Mark",
+  lastName: "Henry",
+  email: "Gmail@gmali"
+ });
+ const user2 = createUser({
+  firstName: "Shark",
+  lastName: "Henri",
+  email: "Gmail@gmail"
+ });
+</script>
