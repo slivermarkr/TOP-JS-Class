@@ -10,14 +10,22 @@
   return {name, discordName, getReputation, giveReputation};
  }
 
+ function createPlayer (name, level) {
+  const {getReputation, giveReputation} = createUser(name);
+
+  const increaseLevel = () => level++;
+  return { name, getReputation, giveReputation, increaseLevel};
+ }
 
  const mark = createUser("Mark");
+ const henry = createPlayer("Henry", 9);
+ // mark.giveReputation()
+ // mark.giveReputation()
+ // mark.giveReputation()
 
- mark.giveReputation()
- mark.giveReputation()
- mark.giveReputation()
+ // console.log({discordName: mark.discordName,
+ // reputation: mark.getReputation()})
+ // console.log(mark.discordName,mark.getReputation())
 
- console.log({discordName: mark.discordName,
- reputation: mark.getReputation()})
 
 </script>
