@@ -1,0 +1,23 @@
+<script>
+ function createUser(name) {
+  const discordName = `@${name}`;
+
+  let reputation = 0;
+
+  const getReputation = () => reputation;
+  const giveReputation = () => reputation++;
+
+  return {name, discordName, getReputation, giveReputation};
+ }
+
+
+ const mark = createUser("Mark");
+
+ mark.giveReputation()
+ mark.giveReputation()
+ mark.giveReputation()
+
+ console.log({discordName: mark.discordName,
+ reputation: mark.getReputation()})
+
+</script>
