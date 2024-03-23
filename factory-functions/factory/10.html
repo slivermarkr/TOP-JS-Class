@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+<body>
+
+
+ <script>
+  function createElement(type,text,color){
+   const el = document.createElement(type)
+   el.textContent = text;
+   el.style.color = color
+   document.body.append(el);
+   return {
+    el,
+    setText(text){
+     el.textContent = text;
+    },
+    setColor(color) {
+
+     el.style.color = color;
+    }
+   }
+
+  }
+
+  const h1 = createElement("h1","Hello there!","red");
+  const x = createElement('div',"X","black");
+ </script>
+</body>
+</html>
