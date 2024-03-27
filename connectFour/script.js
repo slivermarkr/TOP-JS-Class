@@ -43,9 +43,9 @@ function Cell(){
  }
 }
 
-function GameController(
-playerOneName = "player one",
-playerTwoName = "player two"
+function GameController (
+ playerOneName = "Player One",
+ playerTwoName = "Player Two"
 ) {
  const board = Gameboard();
 
@@ -62,29 +62,73 @@ playerTwoName = "player two"
 
  let activePlayer = players[0];
 
- const switchPlayerTurn =  () => {
-  activePlayer = activePlayer === players[0] ? players[1] : players [0];
+ const switchPlayerTurn = () => {
+  activePlayer = activePlayer === players[0] ? players[1] : players[0];
  }
 
  const getActivePlayer = () => activePlayer;
 
- const printNewRound = () => {
-  board.printBoard();
-  console.log(`${getActivePlayer().name}'s turn.`);
+ const printNewBoard = () => {
+  board.printBoard()
+
+  console.log(`${getActivePlayer().name}'s turn`);
  }
 
+
  const playRound = (column) => {
-  console.log(`Dropping ${getActivePlayer().name}'s token into ${column}`);
+  console.log(`Dropping ${getActivePlayer().name}', token into ${column}`);
 
   board.dropToken(column,getActivePlayer().token);
 
   switchPlayerTurn();
-  printNewRound();
+  printNewBoard();
  }
- printNewRound();
+ printNewBoard();
+
  return {
   playRound,
   getActivePlayer,
   getBoard: board.getBoard
  }
 }
+
+function ScreenController() {
+
+ const game = GameController();
+ const playerTurnDiv = document.querySelector('.turn');
+ const boardDiv = document.querySelector('.board');
+
+ const updateScreen = () => {
+  boardDiv.textContent = ""
+
+  const board = game.getBoard();
+  const activePlayer = game.getActivePlayer();
+
+  playerTurnDiv.textContent = `${activePlayer.name}'s turn...`
+
+  board.forEach(row => {
+   row.forEach((cell,index)=> {
+    const cellButton = document.createElement('button');
+    cellButton.classList.add("cell");
+    cellButton.dataset.column = index;
+    cellButton.textContent = cell.getValue();
+    boardDiv.appendChild(cellButton);
+   })
+  })
+ }
+
+ function clickHandlerBoard(e) {
+  const selectedColumn = e.target.dataset.column;
+
+  if(!selectedColumn) return;
+
+  game.playRound(selectedColumn);
+  updateScreen();
+ }
+
+ boardDiv.addEventListener("click",clickHandlerBoard);
+
+ updateScreen();
+}
+
+ScreenController();
