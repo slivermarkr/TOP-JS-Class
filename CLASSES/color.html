@@ -1,0 +1,21 @@
+<script>
+ class Color {  
+  #values;
+  constructor(r, g, b){
+   this.#values = [r,g,b];
+  }
+  getRed() {
+   return this.#values[0];
+  }
+  setRed(input){
+   if(input < 0 || input > 255){
+    console.log("Invalid R value input");
+   }
+   this.#values[0] = input;
+  }
+ }
+ const red = new Color(255,0,0) ;
+ red.setRed(1000);
+
+
+</script>
