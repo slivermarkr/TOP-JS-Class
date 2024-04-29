@@ -1,21 +1,47 @@
-<script>
- class Color {  
-  #values;
-  constructor(r, g, b){
-   this.#values = [r,g,b];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+ <style>
+  #ok{
+   cursor: pointer;
+   font-size: 3rem;
   }
-  getRed() {
-   return this.#values[0];
-  }
-  setRed(input){
-   if(input < 0 || input > 255){
-    console.log("Invalid R value input");
+ </style>
+</head>
+<body>
+ <num-counter id="ok"></num-counter>
+ <script>
+   class Counter extends HTMLElement {
+   #xValue = 0;
+   constructor() {
+    super();
+    this.onclick = this.#clicked.bind(this);
    }
-   this.#values[0] = input;
+   get #x() {
+    return this.#xValue;
+   }
+
+   set #x(value) {
+    this.#xValue = value;
+
+    window.requestAnimationFrame(this.#render.bind(this));
+   }
+   #clicked() {
+    this.#x++;
+   }
+   #render() {
+    this.textContent = this.#x.toString();
+   }
+
+   connectedCallback() {
+    this.#render();
+   }
   }
- }
- const red = new Color(255,0,0) ;
- red.setRed(1000);
 
-
-</script>
+  customElements.define("num-counter",Counter);
+ </script>
+</body>
+</html>
