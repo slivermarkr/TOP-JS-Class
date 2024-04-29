@@ -47,19 +47,36 @@
 // console.log(user.name);
 // user.name = "Law";
 
+// const user = {
+//  name: "Mark",
+//  surname: "Henry",
+
+//  get fullName() {
+//   return `${this.name} ${this.surname}`;
+//  },
+//  set fullName(value) {
+//   [this.name, this.surname] = value.split(" ");
+//  }
+
+// }
+
+// console.log(user.fullName)
+// user.fullName = "Jack Black"
+// console.log(user.fullName)
+
 const user = {
  name: "Mark",
  surname: "Henry",
-
  get fullName() {
   return `${this.name} ${this.surname}`;
  },
+
  set fullName(value) {
   [this.name, this.surname] = value.split(" ");
  }
-
 }
 
-console.log(user.fullName)
-user.fullName = "Jack Black"
-console.log(user.fullName)
+console.log(user)
+console.log(user.fullName);
+user.fullName = "Alice Walis"
+console.log(user.fullName);

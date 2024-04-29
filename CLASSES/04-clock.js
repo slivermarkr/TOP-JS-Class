@@ -22,7 +22,7 @@ class Clock {
   console.log(output)
  }
  
- stop = () => clearInterval(timer);
+ stop = () => clearInterval(this.timer);
 
  start = () => {
   this.render();
