@@ -1,0 +1,19 @@
+<script>
+ class Color{
+  constructor(r, g, b) {
+   this.values  = [r, g, b]
+  }
+  get Red() {
+   return this.values[0];
+  }
+  set Red(value) {
+   this.values[0] = value;
+  }
+ }
+
+ const red = new Color(255, 0 , 0);
+ console.log(red.Red)
+
+ red.Red = 69;
+ console.log(red.Red);
+</script>

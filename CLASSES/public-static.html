@@ -1,0 +1,48 @@
+<script>
+
+class Color {
+ #values;
+ constructor(r,g,b){
+  this.#values = [r, g, b];
+ }
+ get Red() {
+  return this.#values[0];
+ }
+ toString() {
+  return this.#values.join(", ");
+ }
+ static isValid(r, g ,b) {
+  return r >= 0 && r <= 255 && g >= 0 && g <= 255 && b >= 0 && b <= 255
+ }
+}
+
+class ColorWithAlpha extends Color {
+ #alpha;
+constructor(r, g, b, a){
+ super(r, g, b)
+ this.#alpha = a;
+}
+get alpha () {
+ return this.#alpha
+}
+
+set alpha(value) {
+ if( value < 0  || value > 1){
+  throw new RangeError("ALpha value must be between 0 and 1");
+ }
+ this.#alpha = value;
+}
+toString() {
+ return `${super.toString()}, ${this.#alpha}`
+}
+static isValid(r, g, b, a) {
+ return super.isValid(r, g, b) && a >= 0 && a <= 1;
+}
+}
+const me = new Color(255, 0 ,0);
+console.log(me);
+const you = new ColorWithAlpha(255, 0, 0, 0.1);
+console.log(you)
+
+console.log(ColorWithAlpha.isValid(255, 0, 0, 1))
+</script>
