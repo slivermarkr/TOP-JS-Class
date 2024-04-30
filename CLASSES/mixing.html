@@ -1,0 +1,16 @@
+<script>
+ const canSayHello = {
+  sayHello() {
+   console.log("Hello")
+  }
+ }
+ class Greetings  {
+  constructor(name) {
+   this.name = name;
+  }
+ }
+console.log(Greetings)
+Object.assign(Greetings.prototype,canSayHello)
+const greeter = new Greetings("Mark");
+
+</script>
