@@ -1,0 +1,24 @@
+<script>
+ function OldClass() {
+  this.property = 1;
+ }
+
+ OldClass.prototype.method = function() {
+  return "this old method"
+ }
+
+ class ChildClass extends OldClass {
+
+ }
+
+ class NewClass {
+  someproperty = 1;
+  method() {
+   return "new method"
+  }
+ }
+
+ class anotherChild extends NewClass{
+  
+ }
+</script>
