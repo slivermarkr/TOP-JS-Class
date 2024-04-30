@@ -1,3 +1,15 @@
 <script>
+ class DateFormatter{
+  constructor() {
+   this.date = new Date();
+  }
+  getFormattedDate() {
+   const months = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sep','Oct','Nov', 'Dec'
+   ]
+   return `${this.date.getDate()}-${months[this.date.getMonth()]}-${this.date.getFullYear()}`;
+  }
+ }
 
+ console.log(new DateFormatter().getFormattedDate());
 </script>
