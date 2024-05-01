@@ -1,16 +1,41 @@
 <script>
- const canSayHello = {
-  sayHello() {
-   console.log("Hello")
-  }
- }
- class Greetings  {
-  constructor(name) {
-   this.name = name;
-  }
- }
-console.log(Greetings)
-Object.assign(Greetings.prototype,canSayHello)
-const greeter = new Greetings("Mark");
+//  const canSayHello = {
+//   sayHello() {
+//    console.log("Hello")
+//   }
+//  }
+//  class Greetings  {
+//   constructor(name) {
+//    this.name = name;
+//   }
+//  }
+// console.log(Greetings)
+// Object.assign(Greetings.prototype,canSayHello)
+// const greeter = new Greetings("Mark");
 
+//computed properties allows you to dynamically change an objecst property name
+
+// let dynamicKey = "fudgee";
+
+// const obj = {
+//  [dynamicKey] : "bar"
+// }
+
+class Person {
+ constructor(name,lastName) {
+  this.name = name
+  this.lastName = lastName;
+ }
+ get fullName() {
+  return `${this.name} ${this.lastName}`
+ }
+ set fullName (value) {
+  [this.name, this.lastName] = value.split(' ');
+ }
+}
+
+const mark = new Person("Mark","Henry");
+console.log(mark.fullName)
+mark.fullName = "Alice Chains"
+console.log(mark.fullName)
 </script>
