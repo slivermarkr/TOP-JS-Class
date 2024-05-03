@@ -4,13 +4,15 @@
   "description": "",
   "private": true,
   "scripts": {
-    "text": "echo \"error: no text specified\" && exit 1",
+    "test": "echo \"Error: no text specified\" &&exit 1",
     "build": "webpack"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "css-loader": "^7.1.1",
+    "style-loader": "^4.0.0",
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4"
   },
