@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Store and retrieve data from local storage.</h2>
+<p id="demo"></p>
+
+<script>
+// Storing data:
+const myObj = { name: "John", age: function(){return 31}, city: "New York", };
+const myJSON = JSON.stringify(myObj);
+
+
+document.querySelector('#demo').textContent = myJSON;
+</script>
+
+</body>
+</html>
