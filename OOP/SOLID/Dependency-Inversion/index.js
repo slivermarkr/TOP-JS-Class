@@ -42,7 +42,9 @@ makePayment(user, amountInDollars) {
 }
 }
 
-const store = new Store(new StripePaymentProcesssor("Mark"))
+const store = new Store(new PaypalPaymentProcessor("Mark"))
 
 store.purchaseBike(2)
 store.purchaseHelmet(2)
+
+
