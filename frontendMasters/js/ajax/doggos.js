@@ -24,6 +24,8 @@ async function listOfBreeds(event) {
     currentBreedSelected = "";
     currentBreedSelected = select.value;
     getDoggo(select.value);
+
+    nextDogBtn.textContent = `More of ${currentBreedSelected}`;
   });
 
   nextDogBtn.addEventListener("click", () => {
@@ -34,9 +36,11 @@ async function listOfBreeds(event) {
     }
   });
 
+  nextDogBtn.textContent = `More of ${breedList[0]}`;
   getDoggo(breedList[0]);
 }
 async function getDoggo(breedName) {
+  document.querySelector(".doggos").style.display = "none";
   showLoadingSpinner();
 
   const res = await fetch(
@@ -48,6 +52,7 @@ async function getDoggo(breedName) {
   document.querySelector(".doggos").src = resJson.message;
 
   removeLoadingSpinner();
+  document.querySelector(".doggos").style.display = "inline-block";
 }
 
 function showLoadingSpinner() {
@@ -60,32 +65,3 @@ function removeLoadingSpinner() {
 }
 listOfBreeds();
 getDoggo();
-// getDoggo();
-// document.querySelector("#btn").addEventListener("click", getDoggo);
-
-// const doggos = document.querySelector(".doggos");
-// const addDogBtn = document.querySelector("#addBtn");
-// function showSomeDog() {
-//   const promise = fetch(DOG_URL);
-
-//   promise
-//     .then((response) => {
-//       console.log(response);
-//       const processingPromise = response.json();
-//       return processingPromise;
-//     })
-//     .then((processedResponse) => {
-//       const img = document.createElement("img");
-//       img.src = processedResponse.message;
-//       img.alt = "Cute Doggo";
-//       doggos.appendChild(img);
-//     });
-// }
-
-// addDogBtn.addEventListener("click", () => {
-//   doggos.textContent = "";
-//   showSomeDog();
-// });
-
-// showSomeDog();
-// console.log("this will log first");

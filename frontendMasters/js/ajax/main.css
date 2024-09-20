@@ -1,6 +1,7 @@
 img {
   width: 500px;
   height: 500px;
+  border: solid 1px red;
 }
 @keyframes spin {
   to {
@@ -20,7 +21,6 @@ img {
   background-color: brown;
   border-radius: 50%;
   display: none;
-  position: absolute;
 }
 
 .color {
@@ -36,10 +36,22 @@ img {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
+  min-height: 500px;
 }
 nav {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 4rem;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+button {
+  margin-top: 2rem;
+  font-weight: 900;
 }
