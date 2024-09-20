@@ -7,9 +7,29 @@
     <link rel="stylesheet" href="./main.css" />
   </head>
   <body>
-    <h1>Doggos</h1>
-    <div class="doggos"></div>
-    <button id="addBtn">I wanna see a doggo!</button>
+    <!-- <img
+      src="https://frontendmasters.github.io/bootcamp/mole-game/mole-hungry.png"
+      style="background-color: brown; border-radius: 50%"
+      class="mole color"
+    /> -->
+    
+    <nav>
+      <h1>Doggos</h1>
+      <p>
+        <label for="breed">Choose dog breed: </label>
+        <select name="dogBreed" id="breed"></select>
+      </p>
+    </nav>
+    <div class="wrapper">
+     <img
+      src="https://frontendmasters.github.io/bootcamp/mole-game/king-mole-hungry.png"
+      style="background-color: brown; border-radius: 50%"
+      class="mole spin"
+    />
+     <img class="doggos"></img>
+
+     <button class="btn">I wanna see more dog!</button>
+    </div>
     <script src="./script.js"></script>
     <script src="./doggos.js"></script>
   </body>

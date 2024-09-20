@@ -1,5 +1,45 @@
-div,
 img {
-  width: 250px;
+  width: 500px;
+  height: 500px;
+}
+@keyframes spin {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes psychadelic {
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.mole {
   height: 250px;
+  width: 250px;
+  background-color: brown;
+  border-radius: 50%;
+  display: none;
+  position: absolute;
+}
+
+.color {
+  animation: psychadelic 3s linear infinite;
+}
+
+.spin {
+  animation: spin 3s ease-in-out infinite;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
 }
