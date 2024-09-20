@@ -1,7 +1,6 @@
 img {
   width: 500px;
   height: 500px;
-  border: solid 1px red;
 }
 @keyframes spin {
   to {
@@ -39,6 +38,10 @@ img {
   position: relative;
   min-height: 500px;
 }
+.doggos {
+  border: slateblue 10px double;
+}
+
 nav {
   display: flex;
   justify-content: center;

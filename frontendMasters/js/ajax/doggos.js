@@ -2,10 +2,9 @@ const DOG_URL = "https://dog.ceo/api/breeds/image/random";
 const BREED_LIST = "https://dog.ceo/api/breeds/list/all";
 
 const select = document.querySelector("#breed");
-const button = document.querySelector("#btn");
 const nextDogBtn = document.querySelector(".btn");
 
-let currentBreedSelected = "";
+let currentBreedSelected = select.value;
 
 async function listOfBreeds(event) {
   const response = await fetch(BREED_LIST);
@@ -21,11 +20,9 @@ async function listOfBreeds(event) {
     select.appendChild(option);
   }
   select.addEventListener("change", () => {
-    currentBreedSelected = "";
-    currentBreedSelected = select.value;
     getDoggo(select.value);
-
-    nextDogBtn.textContent = `More of ${currentBreedSelected}`;
+    currentBreedSelected = select.value;
+    nextDogBtn.textContent = `More of ${select.value.toUpperCase()}`;
   });
 
   nextDogBtn.addEventListener("click", () => {
@@ -36,9 +33,10 @@ async function listOfBreeds(event) {
     }
   });
 
-  nextDogBtn.textContent = `More of ${breedList[0]}`;
+  nextDogBtn.textContent = `More of ${breedList[0].toUpperCase()}`;
   getDoggo(breedList[0]);
 }
+
 async function getDoggo(breedName) {
   document.querySelector(".doggos").style.display = "none";
   showLoadingSpinner();
