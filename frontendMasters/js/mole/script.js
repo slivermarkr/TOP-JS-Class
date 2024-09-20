@@ -1,19 +1,22 @@
-const box = document.querySelector(".box");
+const HOLE_COUNT = 10;
 
-let start;
+const wrapper = document.querySelector(".wrapper");
 
-function step(timestamp) {
-  if (start === undefined) {
-    start = timestamp;
-  }
-  const elapsed = timestamp - start;
+function createMoleHole() {
+  const div = document.createElement("div");
+  const mole = document.createElement("img");
+  div.classList.add("hole");
+  mole.classList.add("mole");
+  mole.src = "./images/king-mole-hungry.png";
+  div.appendChild(mole);
+  return div;
+}
 
-  const shift = Math.min(0.1 * elapsed, 500);
-  box.style.transform = `translateX(${shift}px)`;
-
-  if (shift < 500) {
-    requestAnimationFrame(step);
+function createMultipleHoles() {
+  for (let i = 0; i < HOLE_COUNT; i++) {
+    const hole = createMoleHole();
+    wrapper.appendChild(hole);
   }
 }
 
-requestAnimationFrame(step);
+createMultipleHoles();

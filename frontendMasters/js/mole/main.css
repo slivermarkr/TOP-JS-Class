@@ -1,0 +1,29 @@
+.hole {
+  background-color: black;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 5rem;
+}
+
+.mole {
+  width: 150px;
+  height: 150px;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  margin-top: 5rem;
+}
+header {
+  background-color: antiquewhite;
+  font-size: 2rem;
+  padding: 1rem;
+}
+img {
+  /* display: none; */
+}
+.show {
+  display: block;
+}
