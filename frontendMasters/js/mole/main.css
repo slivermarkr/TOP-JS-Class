@@ -9,6 +9,7 @@
 .mole {
   width: 150px;
   height: 150px;
+  cursor: pointer;
 }
 .wrapper {
   display: grid;
@@ -22,7 +23,7 @@ header {
   padding: 1rem;
 }
 img {
-  /* display: none; */
+  display: none;
 }
 .show {
   display: block;

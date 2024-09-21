@@ -2,8 +2,32 @@ const HOLE_COUNT = 10;
 
 const wrapper = document.querySelector(".wrapper");
 
+let score = 0;
+
 let isHungry = true;
 let nextTime = Date.now();
+
+const randomNumber = () => Math.floor(Math.random() * 10) + 2 * 1000;
+
+function makeMoleAppear() {
+  const moles = Array.from(document.querySelectorAll(".mole"));
+  moles.forEach((mole) => {
+    setInterval(() => {
+      mole.style.display = "block";
+      makeMoleDisappear();
+    }, randomNumber());
+  });
+}
+
+function makeMoleDisappear() {
+  const moles = Array.from(document.querySelectorAll(".mole"));
+
+  moles.forEach((mole) => {
+    setTimeout(() => {
+      mole.style.display = "none";
+    }, 3000);
+  });
+}
 
 function next() {
   const moles = Array.from(document.querySelectorAll(".mole"));
@@ -27,6 +51,11 @@ function createMoleHole() {
   mole.classList.add("mole");
   mole.src = "./images/king-mole-hungry.png";
   div.appendChild(mole);
+
+  mole.addEventListener("click", () => {
+    score++;
+    console.log("score: " + score);
+  });
   return div;
 }
 
@@ -39,3 +68,4 @@ function createMultipleHoles() {
 
 createMultipleHoles();
 next();
+makeMoleAppear();
