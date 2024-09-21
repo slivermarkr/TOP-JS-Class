@@ -7,15 +7,16 @@ let score = 0;
 let isHungry = true;
 let nextTime = Date.now();
 
-const randomNumber = () => Math.floor(Math.random() * 10) + 2 * 1000;
+let randomNumber = () => Math.floor(Math.random() * 18) + 2;
 
 function makeMoleAppear() {
   const moles = Array.from(document.querySelectorAll(".mole"));
   moles.forEach((mole) => {
+    console.log(randomNumber());
     setInterval(() => {
       mole.style.display = "block";
       makeMoleDisappear();
-    }, randomNumber());
+    }, randomNumber() * 1000);
   });
 }
 
