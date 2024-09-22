@@ -5,22 +5,20 @@ const wormWrapper = document.querySelector(".wormWrapper");
 
 let score = 0;
 
-const widthChange = 10;
-let wormWidth = 0;
-console.log(wormWrapper.offsetWidth);
-
+const amountOfWidthIncrease = 90 / 10;
+let currentWidthSize = 10;
 // const wormSegment = worm.offsetWidth / HOLE_COUNT;
-// console.log(worm.offsetWidth);
 // console.log(wormSegment);
 // let wormWidthRevealed = 0;
-
 let isHungry = true;
 let nextTime = Date.now();
 
 let randomNumber = () => Math.floor(Math.random() * 18) + 2;
 
 function showPartOfWorm() {
-  wormWrapper.style.width = `${wormWrapper.offsetWidth / 10 + widthChange}%`;
+  currentWidthSize += amountOfWidthIncrease;
+  wormWrapper.style.width = `${currentWidthSize}%`;
+  console.log(wormWrapper.style.width);
 }
 // function showPartOfWorm() {
 //   wormWidthRevealed += wormSegment;
