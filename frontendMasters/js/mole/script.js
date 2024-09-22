@@ -29,10 +29,8 @@ function makeMoleDisappear() {
     }, 3000);
   });
 }
-
 function next() {
   const moles = Array.from(document.querySelectorAll(".mole"));
-
   if (Date.now() > nextTime) {
     if (isHungry) {
       moles.forEach((mole) => (mole.src = "./images/king-mole-sad.png"));
@@ -44,6 +42,20 @@ function next() {
   }
   requestAnimationFrame(next);
 }
+// function next() {
+//   const moles = Array.from(document.querySelectorAll(".mole"));
+
+//   if (Date.now() > nextTime) {
+//     if (isHungry) {
+//       moles.forEach((mole) => (mole.src = "./images/king-mole-sad.png"));
+//     } else {
+//       moles.forEach((mole) => (mole.src = "./images/king-mole-hungry.png"));
+//     }
+//     isHungry = !isHungry;
+//     nextTime = Date.now() + 1000;
+//   }
+//   requestAnimationFrame(next);
+// }
 
 function createMoleHole() {
   const div = document.createElement("div");

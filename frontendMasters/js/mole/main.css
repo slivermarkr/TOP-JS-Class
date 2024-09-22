@@ -9,7 +9,7 @@
 .mole {
   width: 150px;
   height: 150px;
-  cursor: pointer;
+  cursor: url(./images/cursor-worm.png), default;
 }
 .wrapper {
   display: grid;
@@ -27,4 +27,12 @@ img {
 }
 .show {
   display: block;
+}
+body {
+  background-image: url(./images/background.png);
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  cursor: url(./images/cursor.png), default;
 }
