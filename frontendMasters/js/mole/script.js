@@ -2,31 +2,33 @@ const HOLE_COUNT = 10;
 
 const wrapper = document.querySelector(".wrapper");
 const wormWrapper = document.querySelector(".wormWrapper");
-
+// increment when mole is clicked
 let score = 0;
-
+// worm width
 const amountOfWidthIncrease = 90 / 10;
 let currentWidthSize = 10;
-// const wormSegment = worm.offsetWidth / HOLE_COUNT;
-// console.log(wormSegment);
-// let wormWidthRevealed = 0;
+// mole status
 let isHungry = true;
 let nextTime = Date.now();
 
+let feddingSuccess = true;
+
 let randomNumber = () => Math.floor(Math.random() * 18) + 2;
+
+function showMoleButt(e) {
+  if (!e.target.className.includes("mole")) return;
+  const img = e.target;
+  img.src = "./images/mole-fed.png";
+  setInterval(() => {
+    img.src = "./images/mole-leaving.png";
+  }, 500);
+}
 
 function showPartOfWorm() {
   currentWidthSize += amountOfWidthIncrease;
   wormWrapper.style.width = `${currentWidthSize}%`;
   console.log(wormWrapper.style.width);
 }
-// function showPartOfWorm() {
-//   wormWidthRevealed += wormSegment;
-//   console.log(wormWidthRevealed);
-//   worm.style.transform = `translateX(-${
-//     worm.offsetWidth - wormWidthRevealed
-//   }px)`;
-// }
 
 function showWinnerScreen() {
   if (score >= 10) {
@@ -79,8 +81,9 @@ function createMoleHole(index) {
   mole.src = "./images/king-mole-hungry.png";
   div.appendChild(mole);
 
-  mole.addEventListener("click", () => {
+  mole.addEventListener("click", (e) => {
     score++;
+    showMoleButt(e);
     showWinnerScreen();
     showPartOfWorm();
     console.log("score: " + score);
