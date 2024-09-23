@@ -10,6 +10,8 @@ let currentWidthSize = 10;
 // mole status
 let isHungry = true;
 let nextTime = Date.now();
+let moleLoop;
+let moleHappyLoop;
 
 let feddingSuccess = true;
 
@@ -21,7 +23,7 @@ function showMoleButt(e) {
   img.src = "./images/mole-fed.png";
   setInterval(() => {
     img.src = "./images/mole-leaving.png";
-  }, 500);
+  }, 1000);
 }
 
 function showPartOfWorm() {
@@ -69,7 +71,21 @@ function next() {
     isHungry = !isHungry;
     nextTime = Date.now() + 1000;
   }
-  requestAnimationFrame(next);
+  moleLoop = requestAnimationFrame(next);
+}
+
+function moleHappy() {
+  const moles = Array.from(document.querySelectorAll(".mole"));
+  if (Date.now() > nextTime) {
+    if (isHungry) {
+      moles.forEach((mole) => (mole.src = "./images/king-mole-fed.png"));
+    } else {
+      moles.forEach((mole) => (mole.src = "./images/king-mole-leaving.png"));
+    }
+    isHungry = !isHungry;
+    nextTime = Date.now() + 1000;
+  }
+  moleHappyLoop = requestAnimationFrame(next);
 }
 
 function createMoleHole(index) {
