@@ -4,6 +4,8 @@ const wrapper = document.querySelector(".wrapper");
 
 const moles = [];
 
+const randomNumber = () => Math.floor(Math.random() * MOLE_COUNT);
+
 const createHoles = () => {
   for (let i = 0; i < MOLE_COUNT; i++) {
     const div = document.createElement("div");
@@ -25,8 +27,9 @@ const createMoleObj = () => {
 
 const putMoleInTheHole = () => {
   const holes = document.querySelectorAll(".hole");
+
   holes.forEach((hole, index) => {
-    hole.innerHTML = "";
+    hole.textContent = "";
     const img = document.createElement("img");
     img.src = moles[index].node;
     img.dataset.id = index;
@@ -53,10 +56,18 @@ const feedTheMole = (e, index) => {
   }
 };
 
-const randomNumber = () => Math.floor(Math.random() * MOLE_COUNT);
-
+const showMoleRandomly = () => {
+  const molesElement = Array.from(document.querySelectorAll(".mole"));
+  console.log(moles);
+  console.log(molesElement);
+  const num = randomNumber();
+  console.log(moles[num]);
+  console.log(molesElement[num]);
+  molesElement[num].classList.add(moles[num].status);
+};
 //add moles to the hole
 
 createHoles();
 createMoleObj();
 putMoleInTheHole();
+showMoleRandomly();

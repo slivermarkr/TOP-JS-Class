@@ -17,9 +17,9 @@
 }
 
 img {
-  /* display: none; */
+  display: none;
 
-  display: block;
+  /* display: block; */
 }
 .show {
   display: block;
@@ -41,4 +41,7 @@ body {
   overflow: hidden;
   transition: width -0.5s ease;
   margin-top: 5rem;
+}
+.hungry {
+  display: block;
 }
