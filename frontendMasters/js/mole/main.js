@@ -37,6 +37,7 @@ const putMoleInTheHole = () => {
     img.dataset.id = index;
     img.dataset.status = moles[index].status;
     img.classList.add("mole");
+    // img.classList.add("hidden");
 
     img.addEventListener("click", (e) => {
       feedTheMole(e, index);
@@ -44,32 +45,44 @@ const putMoleInTheHole = () => {
     hole.appendChild(img);
   });
 };
-
+const refreshMoleStatus = () => {
+  moles.forEach((mole) => {
+    mole.status = "hungry";
+    mole.node = "images/mole-hungry.png";
+  });
+};
 const feedTheMole = (e, index) => {
   // if (!e.target.className.includes("mole")) return;
   if (e.target.dataset.status.includes("hungry")) {
     moles[index].status = "fed";
     moles[index].node = "images/mole-fed.png";
     e.target.classList.add("fed");
+    e.target.classList.remove("hungry");
     putMoleInTheHole();
   } else {
     moles[index].status = "hungry";
+    // moles[index].node = "images/mole-hungry.png";
     putMoleInTheHole();
   }
+  console.log(e.target);
+  console.log(moles[index]);
 };
 
 const showMoleRandomly = () => {
   const molesElement = Array.from(document.querySelectorAll(".mole"));
   molesElement.forEach((mole) => mole.classList.remove("hungry"));
+  refreshMoleStatus();
   const num = randomNumber();
   molesElement[num].classList.add(moles[num].status);
+  // console.log(molesElement[nu]);
 };
 
 const replayAnimation = () => {
   if (Date.now() > initTime) {
     showMoleRandomly();
-    initTime = Date.now() + 1000;
+    initTime = Date.now() + 1500;
   }
+
   requestAnimationFrame(replayAnimation);
 };
 
