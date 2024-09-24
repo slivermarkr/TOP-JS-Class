@@ -4,6 +4,8 @@ const wrapper = document.querySelector(".wrapper");
 
 const moles = [];
 
+let initTime = Date.now();
+
 const randomNumber = () => Math.floor(Math.random() * MOLE_COUNT);
 
 const createHoles = () => {
@@ -46,28 +48,33 @@ const putMoleInTheHole = () => {
 const feedTheMole = (e, index) => {
   // if (!e.target.className.includes("mole")) return;
   if (e.target.dataset.status.includes("hungry")) {
-    moles[index].status = "happy";
-    console.log(moles[index]);
+    moles[index].status = "fed";
+    moles[index].node = "images/mole-fed.png";
+    e.target.classList.add("fed");
     putMoleInTheHole();
   } else {
     moles[index].status = "hungry";
     putMoleInTheHole();
-    console.log(moles[index]);
   }
 };
 
 const showMoleRandomly = () => {
   const molesElement = Array.from(document.querySelectorAll(".mole"));
-  console.log(moles);
-  console.log(molesElement);
+  molesElement.forEach((mole) => mole.classList.remove("hungry"));
   const num = randomNumber();
-  console.log(moles[num]);
-  console.log(molesElement[num]);
   molesElement[num].classList.add(moles[num].status);
 };
-//add moles to the hole
+
+const replayAnimation = () => {
+  if (Date.now() > initTime) {
+    showMoleRandomly();
+    initTime = Date.now() + 1000;
+  }
+  requestAnimationFrame(replayAnimation);
+};
 
 createHoles();
 createMoleObj();
 putMoleInTheHole();
-showMoleRandomly();
+// showMoleRandomly();
+replayAnimation();

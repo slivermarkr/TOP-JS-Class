@@ -45,3 +45,6 @@ body {
 .hungry {
   display: block;
 }
+.fed img {
+  display: block;
+}
