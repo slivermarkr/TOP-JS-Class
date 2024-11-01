@@ -1,27 +1,28 @@
 const userLeft = false;
 const isWatchingCatMeme = true;
 
-function whatUserWatch(callback, errorCallback) {
-  if (userLeft) {
-    errorCallback({
-      name: "user left",
-      message: ":(",
-    });
-  } else if (isWatchingCatMeme) {
-    errorCallback({
-      name: "user watching cat meme.",
-      message: "cat meme > web dev.",
-    });
-  } else {
-    callback("Success.");
-  }
+function whatUserWatch() {
+  return new Promise((resolve, reject) => {
+    if (userLeft) {
+      reject({
+        name: "user left",
+        message: ":(",
+      });
+    } else if (isWatchingCatMeme) {
+      reject({
+        name: "user watching cat meme.",
+        message: "cat meme > web dev.",
+      });
+    } else {
+      resolve("Success.");
+    }
+  });
 }
 
-whatUserWatch(
-  (message) => {
+whatUserWatch()
+  .then((message) => {
     console.log(message);
-  },
-  (error) => {
-    console.log(error.name + " " + error.message);
-  }
-);
+  })
+  .catch((error) => {
+    console.log(error.name + "  " + error.message);
+  });
